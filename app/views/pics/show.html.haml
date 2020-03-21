@@ -14,8 +14,14 @@
 							by
 							= @pic.user.email
 
-%br
+					.col.md-6 
+						.btn-group.pull-right
+							= link_to like_pic_path(@pic), method: :put, class: "btn btn-default" do
+								-# getbootstrap.com glyphicon depricated. use fontawesome rails gem
+								%i.fa.fa-thumbs-up
+								-# prints upvote count 
+								= @pic.get_upvotes.size 
 
-= link_to "Back", root_path
-= link_to "Edit", edit_pic_path
-= link_to "Delete", pic_path, method: :delete, data: { confirm: "Are you sure?" }
+							- if user_signed_in?
+								= link_to "Edit", edit_pic_path, class: "btn btn-info"
+								= link_to "Delete", pic_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"

@@ -1,5 +1,6 @@
 class PicsController < ApplicationController
-  before_action :find_pic, only: [:show, :edit, :update, :destroy]
+  before_action :find_pic, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :authenticate_user!, except: [:index, :show] #devise docs
 
   def index
     @pics = Pic.all.order("created_at DESC")
@@ -35,6 +36,16 @@ class PicsController < ApplicationController
   def destroy
     @pic.destroy
     redirect_to root_path, notice: "Pic was successfully deleted"
+  end
+
+  def upvote
+    if current_user.liked? @pic
+      @pic.downvote_from current_user
+      redirect_to @pic
+    else
+      @pic.liked_by current_user
+      redirect_to @pic
+    end
   end
 
 

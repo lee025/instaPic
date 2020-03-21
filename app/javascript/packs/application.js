@@ -3,16 +3,29 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import 'bootstrap';
-import '../stylesheets/application'
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-require("jqeury")
-require("bootstrap-sprockets")
+require("bootstrap/dist/js/bootstrap");
+// require("packs/custom");
+
+import "bootstrap";
+import '../stylesheets/application'
+import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
+})
+
+// require("masonry/jquery.masonry");
+
+
+// require("jquery-rails")
+// require("bootstrap-sprockets")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
