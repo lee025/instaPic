@@ -1,6 +1,6 @@
 #pic_show.row
-	.col-md-6.col-md-offset-3
-		.panel.panel-default
+	.col
+		.panel.panel-default.mx-auto 
 			.panel.heading.pic_image
 				= image_tag @pic.image.url
 			.panel-body
@@ -18,10 +18,27 @@
 						.btn-group.pull-right
 							= link_to like_pic_path(@pic), method: :put, class: "btn btn-default" do
 								-# getbootstrap.com glyphicon depricated. use fontawesome rails gem
-								%i.fa.fa-thumbs-up
+								- if current_user.liked? @pic
+									%i.fa.fa-heart.liked
+								- else 
+									%i.fa.fa-heart.unliked
 								-# prints upvote count 
 								= @pic.get_upvotes.size 
 
 							- if user_signed_in?
 								= link_to "Edit", edit_pic_path, class: "btn btn-info"
 								= link_to "Delete", pic_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
+
+			#comments.row
+			.col-md-12
+				-# .panel.panel-default
+				-# %h2= @pic.comments.count
+				%br
+				- @pic.comments.each do |comment|
+					%div{class: "", id:"comment"}
+						%p #{content_tag(:strong, "#{current_user.username}")} #{comment.body}
+						-# %p Here is some text I want to #{content_tag(:em, "emphasize!")}, and here the word #{content_tag(:strong, "BOLD")} is in bold. and #{link_to("click here", "url")} for a link.
+						%small.comment_time= "#{time_ago_in_words(comment.created_at)} ago" 
+						= link_to 'Delete', [comment.pic, comment], method: :delete, data: { confirm: "Delete Comment?" }
+				%br
+				= render 'comments/form'

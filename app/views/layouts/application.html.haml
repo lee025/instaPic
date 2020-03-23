@@ -8,28 +8,40 @@
   = csrf_meta_tags
   = csp_meta_tag
   = favicon_link_tag 'favicon.svg', rel: 'icon', type: 'image/svg'
+  -# = link_to rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"'
 
 %body
+  
   %nav.navbar.navbar-inverse
     .container
       .navbar-brand= link_to "InstaPic", root_path 
 
       - if user_signed_in?
-        %div.row
-        %div.col-6
+        %div{class: "col-6", id: "navbarNav"}
         %ul.nav.navbar-nav.navbar-right
-          %li= link_to "Add Pic", new_pic_path
-          %li= link_to "Settings", edit_user_registration_path
-          %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+        %li= link_to "Add Pic", new_pic_path
+        %li= link_to "Settings", edit_user_registration_path
+        %li= link_to "Sign Out", destroy_user_session_path, method: :delete
       - else 
         %ul.nav.navbar-nav.navbar-right
-          %li= link_to "Join", new_user_registration_path
-          %li= link_to "Login", new_user_session_path
+        %li= link_to "Join", new_user_registration_path
+        %li= link_to "Login", new_user_session_path
 
   .container
     -flash.each do |name, msg|
       =content_tag :div, msg, class: "alert alert-info" #bootstrap class styling
 
+
   = yield 
 
+- unless request.path === edit_user_registration_path || request.path === new_user_registration_path || request.path === user_registration_path || request.path === new_user_session_path
+  %footer.navbar.navbar-inverse.fixed-bottom.bottom
+    .container 
+      .navbar-brand &copy; 2020 InstaPic 
+      %div{class: "", id: "navbarNav"}
+      %ul.nav.navbar-nav
+      %li= link_to "GitHub", 'https://github.com/lee025'
+      %li= link_to "LinkedIn", 'https://www.linkedin.com/in/deborah-lee-5a7a4828/'
+      %li= link_to "Portfolio", 'https://www.deblee.dev/'
+      %li= link_to "AngelsList", 'https://angel.co/deborah-lee-27'
 

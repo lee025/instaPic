@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: 'pics#upvote'
     end
+    resources :comments
   end
 
   root 'pics#index'

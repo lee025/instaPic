@@ -26,10 +26,13 @@ gem 'devise', '~> 4.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'paperclip', '~> 4.2.0'
 gem 'masonry-rails', '~> 0.2.4'
-gem 'bootstrap', '~> 4.0'
+# gem 'bootstrap', '~> 4.0'
 gem 'modernizr-rails', '~> 2.7', '>= 2.7.1'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+# gem 'jquery-turbolinks'
+# gem 'masonry-rails', '~> 0.2.4'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

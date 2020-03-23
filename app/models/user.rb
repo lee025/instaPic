@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   acts_as_voter
   has_many :pics
+  has_many :comments, dependent: :destroy
 end

@@ -1,0 +1,13 @@
+<%= form_for([@pic, @pic.comments.build]) do |f| %>
+
+    <p>
+      <%= f.label "Post a comment" %><br/>
+      <%= f.text_area :body, class: "comment-body" %>
+    </p>
+
+    <p>
+      <%= f.submit class: "btn btn-info" %>
+    </p>
+
+<% end %>
+
