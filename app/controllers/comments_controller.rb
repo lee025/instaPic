@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @pic
     else
-      render json: @comment.errors.full_messages
+      redirect_to new_user_session_path, notice: "You need to sign in or sign up before continuing."
+      # render json: @comment.errors.full_messages
     end
   end
 

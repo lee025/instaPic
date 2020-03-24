@@ -4,7 +4,7 @@
       <div class="panel-heading">
 				<h2>Log In</h2>
 			</div>
-			
+
 			<div class="panel-body">
 				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 				
@@ -27,10 +27,18 @@
 				    <%= f.button :submit, "Log in", class: "btn btn-info" %>
 				  </div>
 
-				  <div class="form-group">
-				    <%= f.button :submit, "Demo", class: "btn btn-info" %>
-				  </div>
 				<% end %>
+				
+				<div class="form-group">
+					<button class="btn btn-info" onclick={demoUser()}>Demo</button>
+				</div>
+
+				<script>
+					function demoUser(){
+						document.getElementById("user_email").value = "demoUser@example.com"
+						document.getElementById("user_password").value = "123123"
+					}
+				</script>
 
 				<%= render "devise/shared/links" %>
 			</div>
