@@ -2,7 +2,7 @@
 	.container
 	.row.row-cols-3.ml-4
 		- @pics.each do |pic|
-			.mx-auto.box.panel.panel-default
+			.mx-auto.box.panel.panel-default.pt-5
 				= link_to (image_tag pic.image.url), pic
 				%h2= link_to pic.title, pic
 

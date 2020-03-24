@@ -91,14 +91,18 @@ nav {
 	}
 }
 
-#edit_page {
+// #edit_page {
 	.current_image {
+		display: flex;
+		flex-direction: column;
+		margin: auto;
+		width: fit-content;
 		img {
 			display: block;
 			margin: 20px 0;
 		}
 	}
-}
+// }
 
 .panel-default {
 	width: 70vw;

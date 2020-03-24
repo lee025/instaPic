@@ -1,10 +1,10 @@
-#edit_page.col-md-8.col-md-offset-4
+#edit_page.col
   .row 
-    .panel.panel-default
+    .panel.panel-default.mx-auto
       .panel-heading
         %h1 Edit Pic 
       .panel-body
         .current_image 
-          %strong.center Current Pic 
+          %strong Current Pic 
           =image_tag @pic.image.url(:medium)
         = render 'form'
