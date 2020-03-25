@@ -22,16 +22,18 @@
 				    <%= f.label :remember_me %>
 				    <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
 				  </div>
-
-				  <div class="form-group">
-				    <%= f.button :submit, "Log in", class: "btn btn-info" %>
-				  </div>
+					
+					<div class="d-inline-flex">
+						<div class="form-group">
+							<%= f.button :submit, "Log in", class: "btn btn-info" %>
+						</div>
+						<div class="form-group ml-4">
+							<button class="btn btn-info" onclick={demoUser()}>Demo</button>
+						</div>
+					</div>
 
 				<% end %>
 				
-				<div class="form-group">
-					<button class="btn btn-info" onclick={demoUser()}>Demo</button>
-				</div>
 
 				<script>
 					function demoUser(){
