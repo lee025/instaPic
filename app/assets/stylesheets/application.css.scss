@@ -219,7 +219,9 @@ textarea {
 }
 
 .comment-body {
-	width: 450px;
+	display: flex;
+	margin: auto;
+	min-width: 315px;
 }
 
 #comment {

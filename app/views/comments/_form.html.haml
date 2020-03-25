@@ -1,0 +1,10 @@
+
+= form_for([@pic, @pic.comments.build]) do |f|
+  %p
+    = f.label "Post a comment", class: "pl-4"
+    %br
+    = f.text_area :body, class: "comment-body"
+  %p.d-flex.justify-content-end
+    = f.submit class: "btn btn-info mr-4"
+
+

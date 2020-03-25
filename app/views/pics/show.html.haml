@@ -38,12 +38,13 @@
 				-# %h2= @pic.comments.count
 				%br
 				- @pic.comments.each do |comment|
-					%div{class: "", id:"comment"}
+					%div.pb-5
 						%p #{content_tag(:strong, "#{comment.user.username}")} #{comment.body}
 						-# %p Here is some text I want to #{content_tag(:em, "emphasize!")}, and here the word #{content_tag(:strong, "BOLD")} is in bold. and #{link_to("click here", "url")} for a link.
 						%small.comment_time= "#{time_ago_in_words(comment.created_at)} ago" 
 						- if user_signed_in?
 							= link_to 'Delete', [comment.pic, comment], method: :delete, data: { confirm: "Delete Comment?" }
 				%br
-				- if user_signed_in?
-					= render 'comments/form'
+				
+			- if user_signed_in?
+				= render 'comments/form'
