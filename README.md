@@ -21,8 +21,8 @@ Instapic is built with the Ruby on Rails, Bootstrap, Paperclip & AWS S3 for imag
 ## Picture Show Page
 Upon clicking on a picture, the user will be directed to that pictures's show page. There, the picture will be displayed on an enlarged scale. The pciture is able to be liked/unliked and commented upon. 
 
-<!-- <img src="images/pic_show.png"> -->
-![Alt text](images/pic_show.png?raw=true)
+<img src="app/assets/images/pic_show.png">
+<!-- ![Alt text](images/pic_show.png?raw=true) -->
 
 Posting a comment required a user to be signed in. Deleting a comment is restricted to only the user it belongs to.
 ```
@@ -44,8 +44,8 @@ Posting a comment required a user to be signed in. Deleting a comment is restric
 ## Picture Upload
 Users also have the ability to upload their own pictures if logged in. Uploaded pictures will be added to the entire index of pictures and render on the main page. 
 
-<!-- <img src="images/add_pic.png"> -->
-![Alt text](images/add_pic.png?raw=true)
+<img src="app/assets/images/add_pic.png">
+<!-- ![Alt text](images/add_pic.png?raw=true) -->
 
 Uploading pictures is handled using paperclip:
 models/pic.rb
