@@ -4,6 +4,9 @@ class Pic < ApplicationRecord
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  validates :image, presence: true
+
+
 
   acts_as_votable
   belongs_to :user

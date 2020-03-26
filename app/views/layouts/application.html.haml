@@ -12,7 +12,7 @@
 
 %body
 
-  %nav.navbar.navbar-inverse
+  %nav.navbar.navbar-inverse.min-vw-100.ml-0
     .container
       .navbar-brand= link_to "InstaPic", root_path 
 
@@ -35,8 +35,7 @@
 
   = yield 
 
-- unless request.path === edit_user_registration_path || request.path === new_user_registration_path || request.path === user_registration_path || request.path === new_user_session_path
-  %footer.navbar.navbar-inverse.mt-4.mb-0
+  %footer.navbar.navbar-inverse.mt-4.mb-0.min-vw-100.ml-0
     .container 
       .navbar-brand &copy; 2020 InstaPic 
       %div{class: "", id: "navbarNav"}
