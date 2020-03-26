@@ -25,19 +25,19 @@ Upon clicking on a picture, the user will be directed to that pictures's show pa
 
 Posting a comment required a user to be signed in. Deleting a comment is restricted to only the user it belongs to.
 ```
-			#comments.row
-			.col-md-12
-				%br
-				- @pic.comments.each do |comment|
-					%div.pb-5
-						%p #{content_tag(:strong, "#{comment.user.username}")} #{comment.body}
-						%small.comment_time= "#{time_ago_in_words(comment.created_at)} ago" 
-						- if user_signed_in? && current_user.id == comment.user_id
-							= link_to 'Delete', [comment.pic, comment], method: :delete, data: { confirm: "Delete Comment?" }
-				%br
-				
-			- if user_signed_in?
-				= render 'comments/form'
+#comments.row
+.col-md-12
+  %br
+  - @pic.comments.each do |comment|
+    %div.pb-5
+      %p #{content_tag(:strong, "#{comment.user.username}")} #{comment.body}
+      %small.comment_time= "#{time_ago_in_words(comment.created_at)} ago" 
+      - if user_signed_in? && current_user.id == comment.user_id
+        = link_to 'Delete', [comment.pic, comment], method: :delete, data: { confirm: "Delete Comment?" }
+  %br
+  
+- if user_signed_in?
+  = render 'comments/form'
 ```
 
 ## Picture Upload
@@ -48,16 +48,16 @@ Users also have the ability to upload their own pictures if logged in. Uploaded 
 Uploading pictures is handled using paperclip:
 models/pic.rb
 ```
-	has_attached_file :image, :styles => { medium: "300x300>", thumb: "100x100>" }
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+has_attached_file :image, :styles => { medium: "300x300>", thumb: "100x100>" }
+validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 ```
 views/pics/show.html.haml
 ```
-			.panel.heading.pic_image
-				= image_tag @pic.image.url
-			.panel-body
-				%h1= @pic.title
-				%p= @pic.description
+.panel.heading.pic_image
+  = image_tag @pic.image.url
+.panel-body
+  %h1= @pic.title
+  %p= @pic.description
 ```
 
 
