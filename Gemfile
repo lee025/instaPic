@@ -29,6 +29,8 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'modernizr-rails', '~> 2.7', '>= 2.7.1'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+gem 'aws-sdk', '< 2.0'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # gem 'jquery-turbolinks'
 # gem 'masonry-rails', '~> 0.2.4'
 

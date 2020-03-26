@@ -34,8 +34,10 @@ class PicsController < ApplicationController
   end
 
   def destroy
-    @pic.destroy
-    redirect_to root_path, notice: "Pic was successfully deleted"
+    if current_user.id == @pic.user_id
+      @pic.destroy
+      redirect_to root_path, notice: "Pic was successfully deleted"
+    end
   end
 
   def upvote
