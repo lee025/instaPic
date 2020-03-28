@@ -1,23 +1,32 @@
 #pic_show.row
 	.col
-		.panel.panel-default.mx-auto 
+		.panel.panel-default.mx-auto
+			.panel-title.p-4
+				%p.username.mb-0
+					= @pic.user.username 
 			.panel.heading.pic_image
 				= image_tag @pic.image.url
 			.panel-body
 				%h1= @pic.title
 				%p= @pic.description
-        
+
 			.panel-footer
 				.row
-					.col-md-6
-						%p.user
-							by
-							= @pic.user.email
+					.col
+						- if @pic.get_upvotes.size == 1
+							Liked by
+							= @pic.votes_for.voters.first.username
+						- elsif @pic.get_upvotes.size == 0
+							%div
+						- else
+							Liked by
+							= @pic.votes_for.voters.first.username
+							and others
 
-					.col.md-6 
+					.col-sm-12
 						.btn-group.pull-right
 							= link_to like_pic_path(@pic), method: :put, class: "btn btn-default" do
-								-# getbootstrap.com glyphicon depricated. use fontawesome rails gem
+								-# getbootstrap.com glyphicon depricated. use fontawesome rails gem instead
 								- if user_signed_in?
 									- if current_user.liked? @pic
 										%i.fa.fa-heart.liked

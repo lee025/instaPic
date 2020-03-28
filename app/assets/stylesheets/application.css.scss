@@ -70,6 +70,11 @@ nav {
 	}
 }
 
+.icon {
+	font-size: 25px;
+	margin-right: 5px;
+}
+
 
 #pics {
   margin: 0 auto;
@@ -114,6 +119,14 @@ nav {
 .panel-default {
 	width: 70vw;
 	max-width: 450px;
+}
+
+.min-height {
+	min-height: 90vh;
+}
+
+.bg-transparent {
+	background: transparent;
 }
 
 .mtb {
