@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  # get 'users/show'
+  resources :users, :only => [:show]
   
   resources :pics do 
     member do

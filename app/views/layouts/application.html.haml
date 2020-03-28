@@ -2,8 +2,8 @@
 %html
 %head
   %title InstaPic 
-  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   = csrf_meta_tags
   = csp_meta_tag
@@ -20,7 +20,7 @@
         %div{class: "col-6", id: "navbarNav"}
         %ul.nav.navbar-nav.navbar-right
         %li= link_to "Add Pic", new_pic_path
-        %li= link_to "Settings", edit_user_registration_path
+        %li= link_to "Profile", user_path(current_user.id)
         %li= link_to "Sign Out", destroy_user_session_path, method: :delete
       - else 
         %div{class: "col-6", id: "navbarNav"}

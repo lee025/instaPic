@@ -1,0 +1,38 @@
+-# %h1 Profile Page
+-# %p Settings, uploaded pics, liked pics 
+-# %ul
+-# %li Settings 
+-# %li Uploaded Pics 
+-# %li Liked Pics
+-# %p bootstrap pages? 
+
+-# %p #{@user.username} created #{time_ago_in_words(@user.created_at)} ago
+
+%div.mb-4
+  = link_to "Settings", edit_user_registration_path, class: "btn btn-primary"
+  %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample", "data-toggle" => "collapse", :type => "button"}
+    posts
+  %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample2", "data-toggle" => "collapse", :type => "button"}
+    liked posts
+
+#collapseExample.collapse.show
+  .card.card-body
+    %h4 #{@userPics.count} Posts
+    #pics
+      .container
+      .row.row-cols-3.ml-4
+        - @userPics.each do |pic|
+          .mx-auto.box.panel.panel-default.pt-5
+            = link_to (image_tag pic.image.url), pic
+            %h2= link_to pic.title, pic
+
+#collapseExample2.collapse
+  .card.card-body
+    %h4 #{current_user.find_voted_items.count} Liked Posts
+    #pics
+      .container
+      .row.row-cols-3.ml-4
+        - current_user.find_voted_items.each do |pic|
+          .mx-auto.box.panel.panel-default.pt-5
+            = link_to (image_tag pic.image.url), pic
+            %h2= link_to pic.title, pic
