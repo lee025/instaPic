@@ -9,5 +9,4 @@ class UsersController < ApplicationController
   def getUserPics
     @userPics = Pic.all.where(user_id: current_user.id).order("created_at DESC")
   end
-
 end
