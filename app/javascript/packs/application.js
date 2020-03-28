@@ -5,7 +5,7 @@
 
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -15,6 +15,7 @@ require("bootstrap/dist/js/bootstrap");
 import "bootstrap";
 import '../stylesheets/application'
 import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+import './bootstrap_custom.js'
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
