@@ -42,7 +42,7 @@ class PicsController < ApplicationController
 
   def upvote
     if current_user.liked? @pic
-      @pic.downvote_from current_user
+      @pic.unliked_by current_user
       redirect_to @pic
     else
       @pic.liked_by current_user
