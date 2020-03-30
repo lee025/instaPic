@@ -2,10 +2,11 @@
 [ InstaPic](https://instapic00.herokuapp.com/) an app inspired by Instagram where users can upload, edit, like, and leave comments on pictures. It allows for user authentication and login, display of all pictures uploaded by users, and interaction with other users through likes and comments. Pictures are uploaded to an AWS S3 bucket via Active Storage.
 
 ## Functionality
-- Users can upload pictures if logged in.
-- Users can edit/delete their own pictures. 
-- Users can like or unlike pictures.
-- Users can comment on pictures and delete their own comments.
+- Upload pictures if logged in.
+- Edit/delete their own pictures. 
+- Like or unlike pictures.
+- Comment on pictures and delete their own comments.
+- Access their profile page which displays picture the user has posted as well as liked 
 
 # Technologies & Technical Challenges
 
@@ -19,7 +20,7 @@ Instapic is built with the Ruby on Rails, Bootstrap, Paperclip & AWS S3 for imag
 - Simple Form
 
 ## Picture Show Page
-Upon clicking on a picture, the user will be directed to that pictures's show page. There, the picture will be displayed on an enlarged scale. The pciture is able to be liked/unliked and commented upon. 
+Upon clicking on a picture, the user will be directed to that pictures's show page. There, the picture will be displayed on an enlarged scale. The picture is able to be liked/unliked and commented upon. 
 
 <img src="app/assets/images/pic_show.png">
 <!-- ![Alt text](images/pic_show.png?raw=true) -->
@@ -62,9 +63,12 @@ views/pics/show.html.haml
   %p= @pic.description
 ```
 
+## User Profile
+The user profile is accessible through the navigation bar. The user can view the number of pictures he/she has posted as well as the pictures that they've liked.
+
 
 ## Future directions
-- User Profile
-- Like/Unlike Comments
-- Follow Other Users
-- Search
+[x] User Profile
+[] Like/Unlike Comments
+[] Follow Other Users
+[] Search
