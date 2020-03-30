@@ -69,6 +69,6 @@ The user profile is accessible through the navigation bar. The user can view the
 
 ## Future directions
 - [x] User Profile
-- [ ] Like/Unlike Comments
+- [x] Like/Unlike Comments
 - [ ] Follow Other Users
 - [ ] Search
