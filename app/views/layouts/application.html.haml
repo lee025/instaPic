@@ -8,27 +8,28 @@
   = csrf_meta_tags
   = csp_meta_tag
   %link{href: asset_path('favicon.ico'), rel: 'shortcut icon'}
-  -# = render 'layouts/favicon'
+  %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
+
 
 %body
-
-  %nav.navbar.navbar-inverse.min-vw-100.ml-0
+  %nav.navbar.navbar-default.navbar-inverse.min-vw-100.ml-0
     .container
       .navbar-brand= link_to "InstaPic", root_path 
-
+      -# .navbar-brand= link_to '<i class="fa fa-camera-retro"> InstaPic</i>'.html_safe, root_path 
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .collapse.navbar-collapse
       - if user_signed_in?
-        %div{class: "col-6", id: "navbarNav"}
-        %ul.nav.navbar-nav.navbar-right
-        -# %li= link_to "Add Pic", new_pic_path, class: "fa fa-plus-square"
-        -# %li= link_to "Profile", user_path(current_user.id), class: "fa fa-user-circle"
-        %li= link_to '<i class="fa fa-plus-square icon"></i>'.html_safe, new_pic_path
-        %li= link_to '<i class="fa fa-user-circle icon"></i>'.html_safe, user_path(current_user.id)
-        %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+        %ul.nav.navbar-nav.navbar-right.flex-row.pull-right.mr-3
+          %li= link_to '<i class="fa fa-plus-square icon"></i>'.html_safe, new_pic_path
+          %li= link_to '<i class="fa fa-user-circle icon"></i>'.html_safe, user_path(current_user.id)
+          %li= link_to "Sign Out", destroy_user_session_path, method: :delete
       - else 
-        %div{class: "col-6", id: "navbarNav"}
-        %ul.nav.navbar-nav.navbar-right
-        %li= link_to "Join", new_user_registration_path
-        %li= link_to "Login", new_user_session_path
+        %ul.nav.navbar-nav.navbar-right.flex-row.pull-right.mr-3
+          %li= link_to "Join", new_user_registration_path
+          %li= link_to "Login", new_user_session_path
 
   .container
     -flash.each do |name, msg|

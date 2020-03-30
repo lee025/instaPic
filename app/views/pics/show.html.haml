@@ -15,12 +15,12 @@
 					.col
 						- if @pic.get_upvotes.size == 1
 							Liked by
-							= @pic.votes_for.voters.first.username
+							%strong= @pic.votes_for.voters.first.username
 						- elsif @pic.get_upvotes.size == 0
 							%div
 						- else
 							Liked by
-							= @pic.votes_for.voters.first.username
+							%strong= @pic.votes_for.voters.first.username
 							and others
 
 					.col-sm-12
