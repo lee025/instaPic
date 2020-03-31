@@ -38,13 +38,17 @@
 
   = yield 
 
-  %footer.navbar.navbar-inverse.mt-4.mb-0.min-vw-100.ml-0
-    .container 
-      .navbar-brand &copy; 2020 InstaPic 
-      %div{class: "", id: "navbarNav"}
-      %ul.nav.navbar-nav
-      %li= link_to "GitHub", 'https://github.com/lee025'
-      %li= link_to "LinkedIn", 'https://www.linkedin.com/in/deborah-lee-5a7a4828/'
-      %li= link_to "Portfolio", 'https://www.deblee.dev/'
-      %li= link_to "AngelsList", 'https://angel.co/deborah-lee-27'
+  %footer.navbar.navbar-inverse.mb-0.min-vw-100.ml-0
+    .container
+      .row.footer-row.vw-100.justify-content-around
+        .navbar-brand &copy; 2020 InstaPic 
+        %div{class: "", id: "navbarNav"}
+        %ul.footer-icons.list-unstyled.list-inline.mb-0.d-flex.align-items-center.mx-auto
+          %li.mr-2.footer-constainer= link_to '<i class="fa fa-github icon"></i>'.html_safe, 'https://github.com/lee025'
+          %li.mr-2.footer-constainer= link_to '<i class="fa fa-linkedin icon"></i>'.html_safe, 'https://www.linkedin.com/in/deborah-lee-5a7a4828/'
+          %li.mr-2.footer-constainer= link_to '<i class="fa fa-folder icon"></i>'.html_safe, 'https://www.deblee.dev/'
+          %li.mr-2.footer-constainer= link_to '<i class="fa fa-angellist icon"></i>'.html_safe, 'https://angel.co/deborah-lee-27'
+
+
+
 

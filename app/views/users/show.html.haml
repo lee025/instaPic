@@ -16,19 +16,29 @@
     %h4 #{current_user.find_voted_items.count} Liked Posts
     #pics
       .container
-      .row.row-cols-3.ml-4
+      .row.row-cols-3
         - current_user.find_voted_items.each do |pic|
-          .mx-auto.box.panel.panel-default.pt-5
+          .mx-auto.box.panel.panel-default.pt-5.image-hover
             = link_to (image_tag pic.image.url), pic
             %h2= link_to pic.title, pic
+
+            %a.content.box.m-0{:href =>"#{pic_path(pic)}"}
+              .mx-auto.row.d-flex.justify-content-center
+                .text.mr-4 #{current_user.find_voted_items.count} <i class="fa fa-heart"></i> 
+                .text #{pic.comments.size} <i class="fa fa-comment"></i>
 
 #collapseExample.collapse.show
   .card.card-body.min-height.bg-transparent
     %h4 #{@userPics.count} Posts
     #pics
       .container
-      .row.row-cols-3.ml-4
+      .row.row-cols-3
         - @userPics.each do |pic|
-          .mx-auto.box.panel.panel-default.pt-5
+          .mx-auto.box.panel.panel-default.pt-5.image-hover
             = link_to (image_tag pic.image.url), pic
             %h2= link_to pic.title, pic
+
+            %a.content.box.m-0{:href =>"#{pic_path(pic)}"}
+              .mx-auto.row.d-flex.justify-content-center
+                .text.mr-4 #{current_user.find_voted_items.count} <i class="fa fa-heart"></i> 
+                .text #{pic.comments.size} <i class="fa fa-comment"></i>
